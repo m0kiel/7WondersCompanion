@@ -6,17 +6,14 @@ public enum Screens { None, Profile, MyGames, AddGame, Register, Login}
 public class UIScreen : MonoBehaviour
 {
     private List<GameObject> elements = new();
-    private Dictionary<Screens, UIScreen> screenConections = new();
 
     [SerializeField] private Screens screenKey;
-    [SerializeField] private List<UIScreen> screens;
     
     void Start()
     {
         if (screenKey == Screens.None) { Debug.LogError("UIScreen: " + gameObject.name + " has None as screenKey"); return; }
 
         GetAllElements();
-        SetScreenConnections();
     }
     private void GetAllElements()
     {
@@ -24,31 +21,6 @@ public class UIScreen : MonoBehaviour
         {
             elements.Add(transform.GetChild(i).gameObject);
         }
-    }
-    private void SetScreenConnections()
-    {
-        for (int i = 0; i < screens.Count; i++)
-        {
-            screenConections.Add(screens[i].screenKey, screens[i]);
-            Debug.Log(screens[i].screenKey);
-        }
-
-        screens.Clear();
-    }
-
-    public void ChangeScreens(Screens screenKey)
-    {
-        //Debug.Log("Code is in: " + gameObject.name);
-        //Debug.Log("Change to: " + screenKey);
-        //foreach (Screens screen in screenConections.Keys)
-        //{
-        //    Debug.Log("Dict has : " + screen.ToString());
-        //}
-
-        if (!screenConections.ContainsKey(screenKey)) { Debug.LogError("ScreenKey not in ScreenConnections"); return; }
-
-        screenConections[screenKey].DisplayScreen();
-        HideScreen();
     }
     public void ChangeScreens(Screens screenKey, UIScreen uiScreen)
     {
