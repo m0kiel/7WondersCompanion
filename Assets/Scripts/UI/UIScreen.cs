@@ -35,12 +35,12 @@ public class UIScreen : MonoBehaviour
         {
             e.SetActive(true);
         });
-        //GetComponent<BaseScreen>().OnGameObjectEnabled();
+        GetComponent<BaseScreen>().OnGameObjectEnabled();
         
     }
     public void HideScreen()
     {
-        //GetComponent<BaseScreen>().OnGameObjectDisabled();
+        GetComponent<BaseScreen>().OnGameObjectDisabled();
         elements.ForEach(e => 
         { 
             e.SetActive(false); 
