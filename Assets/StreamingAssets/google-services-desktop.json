@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "756950287340",
+    "project_id": "my7wcompanion",
+    "storage_bucket": "my7wcompanion.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:756950287340:android:2e2856656ff34bb316f6c9",
+        "android_client_info": {
+          "package_name": "com.m0kiApps.Companion7W"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3fLWn5a63LAXSVRsXS2tr_4FC024Jx7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
