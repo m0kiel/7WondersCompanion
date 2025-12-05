@@ -70,3 +70,5 @@ Assets/google-services.json
 Assets/Plugins/Android/FirebaseApp.androidlib/res/values/google-services.xml
 
 Assets/StreamingAssets/google-services-desktop.json
+
+Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/GameInfo.cs
