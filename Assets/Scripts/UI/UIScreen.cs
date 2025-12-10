@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Screens { None, Profile, MyGames, AddGame, Register, Login}
+public enum Screens { None, Profile, MyGames, AddGame, SignIn, Login}
 public class UIScreen : MonoBehaviour
 {
     private List<GameObject> elements = new();
@@ -22,9 +22,9 @@ public class UIScreen : MonoBehaviour
             elements.Add(transform.GetChild(i).gameObject);
         }
     }
-    public void ChangeScreens(Screens screenKey, UIScreen uiScreen)
+    public void ChangeScreens(UIScreen previousScreen)
     {
-        uiScreen.HideScreen();
+        previousScreen.HideScreen();
         DisplayScreen();
         ToolbarEvents.InvokeChangeCurrentScreen(gameObject, this);
     }

@@ -14,12 +14,12 @@ public class Toolbar : MonoBehaviour
     {
         UtilitiesUI.GetComponentByName<Button>(gameObject, "ProfileButton").onClick.AddListener(() =>
         {
-            UtilitiesUI.GetComponentByName<UIScreen>(transform.parent.gameObject, "ProfileScreen").ChangeScreens(Screens.Profile, currentScreen);
+            UtilitiesUI.GetComponentByName<UIScreen>(transform.parent.gameObject, "ProfileScreen").ChangeScreens(currentScreen);
         });
 
         UtilitiesUI.GetComponentByName<Button>(gameObject, "MyGamesButton").onClick.AddListener(() =>
         {
-            UtilitiesUI.GetComponentByName<UIScreen>(transform.parent.gameObject, "MyGamesScreen").ChangeScreens(Screens.MyGames, currentScreen);
+            UtilitiesUI.GetComponentByName<UIScreen>(transform.parent.gameObject, "MyGamesScreen").ChangeScreens(currentScreen);
         });
     }
 

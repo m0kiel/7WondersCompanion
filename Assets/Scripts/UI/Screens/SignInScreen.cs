@@ -1,19 +1,18 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class RegisterScreen : BaseScreen
+public class SignInScreen : BaseScreen
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private GameObject mainButtons;
+
     void Start()
     {
-        
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
-
     public override void OnGameObjectEnabled()
     {
         base.OnGameObjectEnabled();
