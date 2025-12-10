@@ -67,7 +67,7 @@ public class LoginManager : MonoBehaviour
 
     private async void SignInGooglePlayGames()
     {
-        if (string .IsNullOrEmpty(googePlayGamesToken))
+        if (string.IsNullOrEmpty(googePlayGamesToken))
         {
             Debug.LogError("googlePlayGamesToken is null or empty");
             return;

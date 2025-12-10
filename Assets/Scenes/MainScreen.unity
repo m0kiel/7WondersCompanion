@@ -1185,6 +1185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3affd1e9e07dfef4ca86903515adbc4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoginManager
+  googlePlayGamesButtonSignIn: {fileID: 367938879}
 --- !u!4 &1114880684
 Transform:
   m_ObjectHideFlags: 0
