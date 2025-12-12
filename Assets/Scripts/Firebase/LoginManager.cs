@@ -3,11 +3,7 @@ using Unity.Services.Authentication;
 using System.Threading.Tasks;
 using Unity.Services.Core;
 using UnityEngine.UI;
-
-
-
-
-
+using System;
 
 #if UNITY_ANDROID
 using GooglePlayGames;
@@ -19,9 +15,11 @@ public class LoginManager : MonoBehaviour
     private string googePlayGamesToken;
     [SerializeField] private Button googlePlayGamesButtonSignIn;
 
-    void Awake()
+    async void Start()
     {
         #if UNITY_ANDROID
+            await InitializeUnityServices();
+
             PlayGamesPlatform.DebugLogEnabled = true;
             PlayGamesPlatform.Activate();
             LoginGooglePlayGames();
@@ -58,11 +56,13 @@ public class LoginManager : MonoBehaviour
     {
         if (!PlayGamesPlatform.Instance.IsAuthenticated())
         {
+            Logger.Instance.LogInfo("Not Authenticated");
             LoginGooglePlayGames();
             return;
         }
-
+        Logger.Instance.LogInfo("Try SignIn Authenticated");
         SignInGooglePlayGames();
+        AuthenticationEvents.InvokeChangeCurrentScreen(gameObject);
     }
 
     private async void SignInGooglePlayGames()
@@ -89,14 +89,17 @@ public class LoginManager : MonoBehaviour
         {
             await AuthenticationService.Instance.SignInWithGooglePlayGamesAsync(authCode);
             Debug.Log("SignInScreen Successful");
+            Logger.Instance.LogInfo("SignIn Success");
         }
         catch (AuthenticationException ex)
         {
             Debug.LogException(ex);
+            Logger.Instance.LogInfo("Auth Exception");
         }
         catch (RequestFailedException ex)
         {
             Debug.LogException(ex);
+            Logger.Instance.LogInfo("Request Exception");
         }
     }
 
@@ -120,5 +123,19 @@ public class LoginManager : MonoBehaviour
             Debug.LogException(ex);
         }
     }
+
+    private async Task InitializeUnityServices()
+    {
+        try
+        {
+            await UnityServices.InitializeAsync();
+            Debug.Log("UGS initialized!");
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"UGS failed to initialize: {e}");
+        }
+    }
+
 #endif
 }

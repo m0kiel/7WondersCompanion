@@ -5,10 +5,10 @@ public class AuthenticationEvents : MonoBehaviour
 {
     public static event EventHandler<LogInSuccessfulEventArgs> LogInSuccessful;
 
-    public class LogInSuccessfulEventArgs : EventArgs { public UIScreen screen; }
+    public class LogInSuccessfulEventArgs : EventArgs { }
 
-    public static void InvokeChangeCurrentScreen(GameObject sender, UIScreen newScreen)
+    public static void InvokeChangeCurrentScreen(GameObject sender)
     {
-        LogInSuccessful?.Invoke(sender, new LogInSuccessfulEventArgs { screen = newScreen });
+        LogInSuccessful?.Invoke(sender, new LogInSuccessfulEventArgs {});
     }
 }

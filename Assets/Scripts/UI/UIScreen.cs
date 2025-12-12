@@ -7,7 +7,7 @@ public class UIScreen : MonoBehaviour
 {
     private List<GameObject> elements = new();
 
-    [SerializeField] private Screens screenKey;
+    [SerializeField] public Screens screenKey;
     
     void Start()
     {

@@ -6,7 +6,7 @@ public class AuthenticationEventsSubscriber : EventsSubscriber
     {
         // Change to MyGamesScreen
         UIScreen signInScreen = GameObject.FindGameObjectWithTag("Screens").transform.Find("SignIn").GetComponent<UIScreen>();
-        signInScreen.transform.parent.Find("MyGamesScreen").GetComponent<UIScreen>().ChangeScreens(signInScreen);
+        GameObject.FindGameObjectWithTag("Screens").transform.Find("MyGamesScreen").GetComponent<UIScreen>().ChangeScreens(signInScreen);
     }
 
     protected override void SubscribeToEvents()
